@@ -1,0 +1,18 @@
+.info-div {
+  position: relative;
+  display: inline-block;
+}
+
+.info-div:hover .bubble {
+  display: block;
+}
+
+.bubble {
+  padding: 25px;
+  display: none;
+  position: absolute;
+  top: 30%;
+  right: 20px;
+  background-color: #ffffff;
+  border-radius: 500px;
+}
