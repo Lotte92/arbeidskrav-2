@@ -1,14 +1,13 @@
 div {
-  display: flex;
   justify-content: space-between;
 }
 
-li {
+.student-card {
   background-color: rgba(63, 21, 17, 0.911);
   border: rgba(243, 241, 240, 0.808) solid;
   border-radius: 10px;
-  height: 150px;
-  width: 250px;
+  height: 200px;
+  width: 300px;
   display: flex;
 
   align-items: center;
@@ -18,7 +17,10 @@ li {
 }
 
 img {
-  height: 150px;
-  width: 100px;
-  padding: 10px;
+  height: 200px;
+  width: 120px;
+}
+
+li {
+  list-style: none;
 }
