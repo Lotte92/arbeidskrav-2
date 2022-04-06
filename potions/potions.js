@@ -10,7 +10,7 @@ async function loadSeverusSnape() {
   return staff.find((character) => character.name === `Severus Snape`);
 }
 
-function infoSeverusSnape(severusSnape) {
+function createHtmlInfoSeverusSnape(severusSnape) {
   const infoDiv = document.createElement("div");
   infoDiv.classList.add("info-div");
   document.body.append(infoDiv);
@@ -37,14 +37,28 @@ function infoSeverusSnape(severusSnape) {
   infoDiv.append(spell);
 }
 
+// Henter ut 10 random elever med sort og math.random.
+async function onClickStartButton() {
+  const students = await loadCharactersStudents();
+  const sortedStudents = students.sort((student1, student2) => {
+    if (Math.random() > 0.5) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+
+  const tenFirstStudents = sortedStudents.slice(0, 10);
+
+  console.log(tenFirstStudents);
+}
+
 //lage knapp for å starte undervisning
 function makeStartClassButton() {
   const button = document.createElement("button");
   button.textContent = `Trykk her for å starte undervisningen`;
   document.body.append(button);
-  button.addEventListener(`click`, () => {
-    console.log("todo");
-  });
+  button.addEventListener(`click`, onClickStartButton);
 }
 
 // loadSeverusSnape().then((snape) => console.log(snape));
@@ -58,15 +72,9 @@ async function loadCharactersStudents() {
   return students;
 }
 
-async function loadCharactersStudents() {
-  const students = await loadCharactersStudents();
-}
-
 async function main() {
   const severusSnape = await loadSeverusSnape();
-  infoSeverusSnape(severusSnape);
+  createHtmlInfoSeverusSnape(severusSnape);
   makeStartClassButton();
-  const students = await loadCharactersStudents();
-  console.log(students);
 }
 main();
