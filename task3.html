@@ -4,18 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teacher Creator</title>
     <link rel="stylesheet" href="task3.css" />
+    <title>Teacher Creator</title>
   </head>
   <body>
     <header>
-      <a href="index.html">
-        <img
-          src="/assets/harrypotter.jpeg"
-          alt="Harry Potter Logo"
-          class="logo"
-        />
-      </a>
+      <div class="container">
+        <h1>Our Teachers</h1>
+      </div>
       <nav>
         <ul>
           <li><a href="">Yearbook</a></li>
@@ -23,31 +19,28 @@
           <li><a href="">Teacher Creator</a></li>
         </ul>
       </nav>
-    </header>
-    <div class="container">
-      <h1>Our Teachers</h1>
-      <div class="btn-container">
-        <button class="create-teacher-button">Create new teacher</button>
-      </div>
       <div class="create-teacher-container">
         <div class="logo">
           <img class="hogwarts-logo" src="assets/hogwarts.jpeg" />
-          <h3>Add new teacher</h3>
         </div>
-        <div class="input-container">
-          <input type="text" placeholder="Name:" class="create-name-input" />
-          <input type="text" placeholder="House:" class="create-house-input" />
-          <input
-            type="text"
-            placeholder="Patronus:"
-            class="create-patronus-input"
-          />
-        </div>
-        <button class="save-btn">Save</button>
-        <button class="clear-btn">Clear</button>
       </div>
-      <ul class="teacher-list"></ul>
+    </header>
+    <div class="button-container">
+      <button class="create-teacher-button">Create a new teacher</button>
     </div>
-    <script src="/task3.js"></script>
+    <h3>Add new teacher</h3>
+    <div class="input-container">
+      <input type="text" placeholder="Name:" class="create-name" />
+      <input type="text" placeholder="House:" class="create-house" />
+      <input
+        type="text"
+        placeholder="Patronus:"
+        class="create-patronus-input"
+      />
+    </div>
+    <button class="save-button">Save</button>
+    <button class="clear-button">Clear</button>
+    <ul class="teacher-list"></ul>
+    <script src="task3.js"></script>
   </body>
 </html>
