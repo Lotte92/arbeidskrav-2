@@ -18,29 +18,42 @@ body {
   overflow: hidden;
 }
 
+/* Header */
 h1 {
-  padding: 100px;
+  padding: 150px;
+  font-size: 60px;
   text-align: center;
   position: relative;
-  font-size: 4rem;
   text-transform: uppercase;
 }
 
-.hogwarts-logo {
-  left: 20em;
-  width: 70px;
-  margin-top: 20px;
+.logo {
+  display: block;
+  padding: 20px;
+  float: left;
+  font-size: 20px;
 }
 
+.hogwarts-logo {
+  width: 10em;
+  float: left;
+  padding: 0 30px;
+}
+
+.hogwarts-logo:hover {
+  opacity: 80%;
+}
+
+/* navigation */
 ul {
+  align-items: center;
   list-style-type: none;
-  float: right;
-  padding: 20px;
+  float: left;
+  padding: 1em;
 }
 li {
   display: inline-block;
   padding: 1em;
   text-align: center;
-  transition: all 0.2s;
   text-transform: uppercase;
 }
