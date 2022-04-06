@@ -16,11 +16,35 @@
             <a href="/potions">Potions</a>
           </li>
         </ul>
-      <nav>
+      </nav>
     </header>
 
     <main>
       <h1>Harry Potter stuff</h1>
     </main>
+
+    <script>
+      const numbers = [5, 2, 7, 3, 8, 1];
+      const sortedNumbers = numbers.sort();
+      console.log(sortedNumbers);
+
+      const products = [
+        { name: "banana", price: 10 },
+        { name: "apples", price: 20 },
+        { name: "milk", price: 15 },
+        { name: "meat", price: 35 },
+      ];
+
+      const productsSorted = products.sort((elem1, elem2) => {
+        if (elem1.price > elem2.price) {
+          return 1;
+        } else if (elem1.price < elem2.price) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+      console.log(productsSorted);
+    </script>
   </body>
 </html>

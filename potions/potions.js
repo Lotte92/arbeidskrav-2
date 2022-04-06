@@ -27,7 +27,7 @@ function infoSeverusSnape(severusSnape) {
   //regne ut alder på severus snape
   const age = new Date().getFullYear() - severusSnape.yearOfBirth;
   const ageElement = document.createElement("p");
-  ageElement.textContent = `Age: ${age}`;
+  ageElement.textContent = `Alder: ${age}`;
   infoDiv.append(ageElement);
 
   // tryllekunst snakkeboble
@@ -50,9 +50,23 @@ function makeStartClassButton() {
 // loadSeverusSnape().then((snape) => console.log(snape));
 //Professor Snape: Bilde, Navn, Alder, Tryllestav-informasjon. //
 
+// hente ut studenter
+async function loadCharactersStudents() {
+  const apiUrl = `http://hp-api.herokuapp.com/api/characters/students`;
+  const result = await fetch(apiUrl);
+  const students = await result.json();
+  return students;
+}
+
+async function loadCharactersStudents() {
+  const students = await loadCharactersStudents();
+}
+
 async function main() {
   const severusSnape = await loadSeverusSnape();
   infoSeverusSnape(severusSnape);
   makeStartClassButton();
+  const students = await loadCharactersStudents();
+  console.log(students);
 }
 main();
