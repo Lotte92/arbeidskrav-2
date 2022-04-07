@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "bluu next" sans-serif;
   color: #ffff;
   width: 100%;
   height: 100%;
@@ -15,16 +15,17 @@ body {
   background-blend-mode: darken;
   background-size: cover;
   background-repeat: no-repeat;
-  overflow: hidden;
 }
 
 /* Header */
+
 h1 {
   padding: 150px;
   font-size: 60px;
   text-align: center;
   position: relative;
   text-transform: uppercase;
+  color: white;
 }
 
 .logo {
@@ -35,7 +36,7 @@ h1 {
 }
 
 .hogwarts-logo {
-  width: 10em;
+  width: 5em;
   float: left;
   padding: 0 30px;
 }
@@ -45,15 +46,80 @@ h1 {
 }
 
 /* navigation */
+a {
+  color: #aa9270;
+}
+
+nav {
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+nav ul {
+  float: right;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+}
+
 ul {
   align-items: center;
   list-style-type: none;
   float: left;
-  padding: 1em;
+  padding: 0.5em;
 }
 li {
   display: inline-block;
   padding: 1em;
   text-align: center;
+  text-transform: uppercase;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.create-teacher-button {
+  padding: 10px;
+  color: white;
+  background-color: #265c5c;
+  width: 250px;
+  border: 0 none;
+  border-radius: 20px;
+  margin: 50px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.clear-button,
+.save-button {
+  color: white;
+  border: 0 none;
+  border-radius: 20px;
+  background-color: #aa9270;
+  width: 250px;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.create-name,
+.create-house,
+.create-patronus {
+  padding-left: 10px;
+  height: 50px;
+  width: 200px;
+  margin: 20px;
+  border: 0 none;
+  border-radius: 20px;
+}
+::placeholder {
+  font-family: "bluu next" sans-serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
 }
