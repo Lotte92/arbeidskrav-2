@@ -123,3 +123,71 @@ li {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
 }
+
+img {
+  grid-area: auto;
+  max-height: 300px;
+}
+
+/*Colors of Hogwarts Houses:
+Ravenclaw = Blue
+Slytherin = Green
+Gryffindor = Red
+Hufflepuff = Yellow 
+No house = Brown */
+
+.staff-ravenclaw {
+  background-color: #385170;
+  width: 300px;
+  display: inline-block;
+  margin: 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-slytherin {
+  background-color: #9fd3c7;
+  width: 300px;
+  display: inline-block;
+  margin: 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-gryffindor {
+  background-color: #c24d2c;
+  width: 300px;
+  display: inline-block;
+  margin: 1rem;
+  border-radius: 4px;
+
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-hufflepuff {
+  background-color: #ffc93c;
+  width: 300px;
+  display: inline-block;
+  margin: 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.staff {
+  background-color: #83580b;
+  width: 300px;
+  display: inline-block;
+  margin: 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
