@@ -4,17 +4,17 @@
 }
 
 body {
-  font-family: "bluu next" sans-serif;
-  color: #ffff;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+  color: white;
   text-align: center;
   background: rgba(0, 0, 0, 0.5) url(/assets/school-background.jpeg);
+  background-attachment: fixed;
   background-blend-mode: darken;
-  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Header */
@@ -81,7 +81,7 @@ li {
   text-align: center;
 }
 
-.create-teacher-button {
+.create-staff-button {
   padding: 10px;
   color: white;
   background-color: #265c5c;

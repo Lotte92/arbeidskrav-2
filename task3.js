@@ -29,8 +29,8 @@ function showStaff(staff) {
   staffList.innerHTML = "";
   for (let i = 0; i < staff.length; i++) {
     let staffName = document.createElement("h3");
-    let editContent = document.createElement("p");
-    let staffCard = document.createElement("p");
+    let editCard = document.createElement("ul");
+    let staffCard = document.createElement("ul");
     staffName.innerText = staff[i].name;
     let staffHouse = document.createElement("p");
     staffHouse.classList.add("staff-house");
@@ -61,7 +61,7 @@ function showStaff(staff) {
       staffImg.src = staff[i].image;
     }
 
-    staffList.append(staffCard, editContent);
+    staffList.append(staffCard, editCard);
     staffCard.append(staffName, staffHouse, staffPatronus, staffImg);
   }
 }
