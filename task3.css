@@ -127,6 +127,10 @@ li {
 img {
   grid-area: auto;
   max-height: 300px;
+  opacity: 1;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
 }
 
 /*Colors of Hogwarts Houses:
@@ -190,4 +194,13 @@ No house = Brown */
   transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
+}
+
+span {
+  display: none;
+}
+
+div:hover > span p {
+  visibility: visible;
+  color: #265c5c;
 }

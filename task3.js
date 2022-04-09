@@ -55,13 +55,15 @@ function showStaff(staff) {
     }
 
     //Patronus
+
     let staffPatronus = document.createElement("p");
     staffPatronus.classList.add("staff-patronus");
     if (staff[i].patronus == "") {
-      staffPatronus.innerText = "Patronus: Unknown";
+      staffPatronus.innerHTML = `<span>"Patronus: Unknown";
     } else {
-      staffPatronus.innerText = `Patronus: ${staff[i].patronus}`;
+      staffPatronus.innerHTML = Patronus: ${staff[i].patronus}</span>`;
     }
+
     let staffImg = document.createElement("img");
     staffImg.classList.add(".staff-img");
     if (staff[i].image == "") {
