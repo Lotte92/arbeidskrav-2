@@ -196,11 +196,6 @@ No house = Brown */
   overflow: hidden;
 }
 
-span {
-  display: none;
-}
-
-div:hover > span p {
-  visibility: visible;
-  color: #265c5c;
+.add-new-btn {
+  align-content: flex-end;
 }

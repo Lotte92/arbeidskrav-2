@@ -41,6 +41,13 @@ function showStaff(staff) {
     staffHouse.classList.add("staff-house");
     staffHouse.innerText = `House: ${staff[i].house}`;
 
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Delete";
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.addEventListener("click", () => {
+      deleteStaff(i, staff);
+    });
+
     //House
     if (staff[i].house == "Ravenclaw") {
       staffCard.classList.add("staff-ravenclaw");
@@ -58,11 +65,20 @@ function showStaff(staff) {
 
     let staffPatronus = document.createElement("p");
     staffPatronus.classList.add("staff-patronus");
+    staffPatronus.style.display = "none";
     if (staff[i].patronus == "") {
-      staffPatronus.innerHTML = `<span>"Patronus: Unknown";
+      staffPatronus.innerHTML = "Patronus: Unknown";
     } else {
-      staffPatronus.innerHTML = Patronus: ${staff[i].patronus}</span>`;
+      staffPatronus.innerHTML = `Patronus: ${staff[i].patronus}`;
     }
+
+    staffCard.addEventListener("mouseover", function () {
+      staffPatronus.style.display = "inline-block";
+    });
+
+    staffCard.addEventListener("mouseout", function () {
+      staffPatronus.style.display = "none";
+    });
 
     let staffImg = document.createElement("img");
     staffImg.classList.add(".staff-img");
