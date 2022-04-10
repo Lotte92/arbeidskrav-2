@@ -27,7 +27,7 @@ function createHtmlInfoSeverusSnape(severusSnape) {
   //regne ut alder på severus snape
   const age = new Date().getFullYear() - severusSnape.yearOfBirth;
   const ageElement = document.createElement("p");
-  ageElement.textContent = `Alder: ${age}`;
+  ageElement.textContent = `Age: ${age}`;
   infoDiv.append(ageElement);
 
   // tryllekunst snakkeboble
@@ -50,7 +50,7 @@ async function onClickStartButton() {
 
   const tenFirstStudents = sortedStudents.slice(0, 10);
 
-  console.log(tenFirstStudents);
+  addStudentsToHtml(tenFirstStudents);
 }
 
 //lage knapp for å starte undervisning
@@ -70,6 +70,42 @@ async function loadCharactersStudents() {
   const result = await fetch(apiUrl);
   const students = await result.json();
   return students;
+}
+
+function addStudentsToHtml(students) {
+  const cards = document.createElement("div");
+  cards.classList.add("cards");
+  document.body.append(cards);
+
+  console.log(students);
+  for (const student of students) {
+    cards.append(createCard(student));
+  }
+}
+
+function createCard(student) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+
+  const img = document.createElement("img");
+  img.src = student.image;
+  if (student.image === "") {
+    img.src = "./noimage.png";
+  }
+  card.append(img);
+
+  const cardContent = document.createElement("div");
+  cardContent.classList.add("card-content");
+  card.append(cardContent);
+
+  const studentName = document.createElement("h2");
+  studentName.textContent = student.name;
+  cardContent.append(studentName);
+
+  const studentHouse = document.createElement("p");
+  studentHouse.textContent = student.house;
+  cardContent.append(studentHouse);
+  return card;
 }
 
 async function main() {
