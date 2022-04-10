@@ -19,7 +19,7 @@ function createHtmlInfoSeverusSnape(severusSnape) {
 
   const image = document.createElement("img");
   image.src = severusSnape.image;
-  image.alt = "bilde av severus snape";
+  image.alt = "picture of severus snape";
   infoDiv.append(image);
 
   const name = document.createElement("h2");
@@ -58,7 +58,7 @@ async function onClickStartButton() {
 //lage knapp for å starte undervisning
 function makeStartClassButton() {
   const button = document.createElement("button");
-  button.textContent = `Trykk her for å starte undervisningen`;
+  button.textContent = `Click here to start the class`;
   document.body.append(button);
   button.addEventListener(`click`, onClickStartButton);
 }
