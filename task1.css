@@ -1,10 +1,69 @@
-div {
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.wrapper {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 10% 90%;
+  grid-template-areas:
+    "inputContainer inputContainer inputContainer"
+    "houseContainer houseContainer houseContainer";
+}
+
+#house-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-area: houseContainer;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-template-areas: "gryffindorContainer slytherinContainer ravenclawContainer";
   justify-content: space-between;
+  justify-content: center;
+}
+
+.Gryffinfor-house {
+  grid-area: gryffindorContainer;
+  background-color: rgba(41, 26, 18, 0.801);
+}
+
+.Slytherin-house {
+  grid-area: slytherinContainer;
+  background-color: rgba(18, 41, 33, 0.801);
+}
+
+.Ravenclaw-house {
+  grid-area: ravenclawContainer;
+  background-color: rgba(18, 41, 33, 0.801);
+}
+
+.Hufflepuff-house {
+  grid-area: hufflepuffContainer;
+  background-color: rgba(18, 41, 33, 0.801);
+}
+
+#input-container {
+  position: relative;
+  grid-area: inputContainer;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+input {
+  width: 100%;
 }
 
 .student-card {
-  background-color: rgba(63, 21, 17, 0.911);
-  border: rgba(243, 241, 240, 0.808) solid;
+  background-color: rgba(255, 255, 255, 0.911);
+  border: rgba(0, 0, 0, 0.411) solid;
   border-radius: 10px;
   height: 200px;
   width: 300px;
@@ -13,7 +72,6 @@ div {
   align-items: center;
   padding: 10px;
   margin: 10px;
-  color: white;
 }
 
 img {
@@ -23,4 +81,8 @@ img {
 
 li {
   list-style: none;
+}
+
+.dead {
+  color: red;
 }

@@ -17,6 +17,10 @@ async function getCaracters(url) {
   const caracters = await fetch(url);
   const jsonData = await caracters.json();
   jsonData.forEach((caracter) => {
+    if (caracter.image === "") {
+      caracter.image = `https://cdn.pixabay.com/photo/2017/08/19/08/52/albus-dumbledore-2657724_1280.png`;
+    }
+
     caractersClass = new Caracters(
       caracter.image,
       caracter.name,
@@ -39,45 +43,81 @@ class Caracters {
   }
 }
 
-let gryffindorContainer = document.createElement("div");
-let gryffindorBtn = document.createElement("button");
-gryffindorBtn.innerText = "Show students of Gryffindor";
+let inputContainer = document.getElementById("input-container");
 let createStudentBtn = document.createElement("button");
 createStudentBtn.innerText = "Create your own student";
+inputContainer.append(createStudentBtn);
 
-let studentCard = document.createElement("div");
-
-document.body.append(createStudentBtn, gryffindorContainer);
-gryffindorContainer.append(gryffindorBtn, studentCard);
-
+let gryffindorContainer = document.getElementById("Gryffinfor-house");
+let gryffindorBtn = document.createElement("button");
+gryffindorBtn.innerText = "Show students of Gryffindor";
 gryffindorBtn.addEventListener("click", () => {
-  function listGryffindorStudents() {
-    for (let i = 0; i < caracterArray.length; i++) {
-      if (caracterArray[i].house === "Gryffindor") {
-        studentCard.innerHTML += `<div id="${i}" class="student-card"> 
-         <img src="${caracterArray[i].image}" alt="caracter-images"/>  
-     <ul> <li> Name: ${caracterArray[i].name} </li>
-      <li> House: ${caracterArray[i].house}</li>
-       <li> Day Of Birth: ${caracterArray[i].dateOfBirth} </li>
-       <li> Alive: ${caracterArray[i].alive}</li></ul>
-    </div> `;
-      }
-    }
-  }
-
-  listGryffindorStudents();
+  listStudents("Gryffindor", gryffindorContainer);
 });
 
-gryffindorContainer.style.backgroundColor = "lightgrey";
-gryffindorContainer.style.height = "300px";
-gryffindorContainer.style.width = "400px";
+let slytherinContainer = document.getElementById("Slytherin-house");
+let slytherinBtn = document.createElement("button");
+slytherinBtn.innerText = "Show students of Slyterin";
+slytherinBtn.addEventListener("click", () => {
+  listStudents("Slytherin", slytherinContainer);
+});
+
+let ravenclawContainer = document.getElementById("Ravenclaw-house");
+let ravenclawBtn = document.createElement("button");
+ravenclawBtn.innerText = "Show students of Ravenclaw";
+ravenclawBtn.addEventListener("click", () => {
+  listStudents("Ravenclaw", ravenclawContainer);
+});
+
+let hufflepuffContainer = document.getElementById("Hufflepuff-house");
+let hufflepuffBtn = document.createElement("button");
+hufflepuffBtn.innerText = "Show students of Hufflepuff";
+hufflepuffBtn.addEventListener("click", () => {
+  listStudents("Hufflepuff", hufflepuffContainer);
+});
+
+let houseContainer = document.getElementById("house-container");
+houseContainer.append(
+  gryffindorContainer,
+  slytherinContainer,
+  ravenclawContainer,
+  hufflepuffContainer
+);
+gryffindorContainer.append(gryffindorBtn);
+slytherinContainer.append(slytherinBtn);
+ravenclawContainer.append(ravenclawBtn);
+hufflepuffContainer.append(hufflepuffBtn);
+
+function listStudents(students, container) {
+  for (let i = 0; i < caracterArray.length; i++) {
+    let aliveTag = "";
+    if (caracterArray[i].alive) {
+      aliveTag = `<li> Alive: ${caracterArray[i].alive}</li>`;
+    } else {
+      aliveTag = `<li class="dead"> Alive: ${caracterArray[i].alive}</li>`;
+    }
+
+    if (caracterArray[i].house === `${students}`) {
+      container.innerHTML += `<div id="${i}" class="student-card"> 
+          <img src="${caracterArray[i].image}" alt="caracter-images"/>  
+          <ul>
+            <li> Name: ${caracterArray[i].name} </li>
+            <li> House: ${caracterArray[i].house}</li>
+            <li> Day Of Birth: ${caracterArray[i].dateOfBirth} </li>
+            ${aliveTag}
+          </ul>
+        </div> `;
+    }
+  }
+  addStudent(students);
+}
 
 createStudentBtn.addEventListener("click", () => {
   addStudent();
 });
 
-function addStudent() {
-  studentCard.innerHTML = "";
+function addStudent(students) {
+  `${students}-house`.innerHTML = "";
   let inputImg = document.getElementById(`img-input`).value;
   let inputName = document.getElementById(`name-input`).value;
   let inputHouse = document.getElementById(`house-input`).value;
