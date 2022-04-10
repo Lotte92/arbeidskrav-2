@@ -1,6 +1,27 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .info-div {
   position: relative;
   display: inline-block;
+  margin-bottom: 25px;
+}
+
+.info-div > img {
+  border-radius: 20px;
+  border: 2px solid #452821;
+}
+
+.info-div > * {
+  margin-top: 10px;
+}
+
+.info-div > h2,
+.info-div > p {
+  text-align: center;
 }
 
 .info-div:hover .bubble {
@@ -20,6 +41,7 @@
 /*.cards styling */
 
 .cards {
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
@@ -31,7 +53,8 @@
   flex-direction: column;
   overflow: hidden;
   max-width: 300px;
-  border-radius: 15px;
+  border: 2px solid #452821;
+  border-radius: 10px;
   position: relative;
   font-family: Helvetica, Arial, sans-serif;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
@@ -60,25 +83,4 @@
   margin-bottom: 30px;
   text-align: center;
   flex: 1;
-}
-
-.card-content > button {
-  border: none;
-  background-color: blueviolet;
-  color: #fafafa;
-  padding: 10px 20px;
-  border-radius: 500px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-}
-
-.card-content > button:hover {
-  background-color: rgb(69, 19, 116);
-  transform: scale(1.2);
-}
-
-.card-content > button:active {
-  transform: translateY(1px);
 }

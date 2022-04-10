@@ -121,10 +121,13 @@ function createCard(student) {
   deleteStudent.addEventListener(`click`, async () => {
     const answer = prompt("Do you want to delete this student?");
     if (answer.toLowerCase() === "yes") {
-      const index = tenFirstStudents.findIndex((stud) => stud.name === student.name);
+      // get list of unused students
       const students = await loadCharactersStudents();
       const existingStudentNames = tenFirstStudents.map((stud) => stud.name);
       const unusedStudents = students.filter((stud) => existingStudentNames.includes(stud.name) === false);
+
+      // replace deleted student with random unused student
+      const index = tenFirstStudents.findIndex((stud) => stud.name === student.name);
       tenFirstStudents.splice(index, 1, unusedStudents[Math.floor(Math.random() * unusedStudents.length)]);
       addStudentsToHtml(tenFirstStudents);
     }
