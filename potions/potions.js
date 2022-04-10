@@ -39,53 +39,6 @@ function createHtmlInfoSeverusSnape(severusSnape) {
   infoDiv.append(spell);
 }
 
-// Henter ut 10 random elever med sort og math.random.
-async function onClickStartButton() {
-  const students = await loadCharactersStudents();
-  const sortedStudents = students.sort((student1, student2) => {
-    if (Math.random() > 0.5) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
-
-  tenFirstStudents = sortedStudents.slice(0, 10);
-
-  addStudentsToHtml(tenFirstStudents);
-}
-
-//lage knapp for å starte undervisning
-function makeStartClassButton() {
-  const button = document.createElement("button");
-  button.textContent = `Click here to start the class`;
-  document.body.append(button);
-  button.addEventListener(`click`, onClickStartButton);
-}
-
-// loadSeverusSnape().then((snape) => console.log(snape));
-//Professor Snape: Bilde, Navn, Alder, Tryllestav-informasjon. //
-
-// hente ut studenter
-async function loadCharactersStudents() {
-  const apiUrl = `http://hp-api.herokuapp.com/api/characters/students`;
-  const result = await fetch(apiUrl);
-  const students = await result.json();
-  return students;
-}
-
-function addStudentsToHtml(students) {
-  document.querySelector(".cards")?.remove();
-
-  const cards = document.createElement("div");
-  cards.classList.add("cards");
-  document.body.append(cards);
-
-  for (const student of students) {
-    cards.append(createCard(student));
-  }
-}
-
 function createCard(student) {
   const card = document.createElement("div");
   card.classList.add("card");
@@ -119,7 +72,7 @@ function createCard(student) {
   deleteStudent.textContent = "Delete student";
   cardContent.append(deleteStudent);
   deleteStudent.addEventListener(`click`, async () => {
-    const answer = prompt("Do you want to delete this student?");
+    const answer = prompt("Do you want to delete this student? Write yes or no");
     if (answer.toLowerCase() === "yes") {
       // get list of unused students
       const students = await loadCharactersStudents();
@@ -135,6 +88,53 @@ function createCard(student) {
 
   return card;
 }
+
+function addStudentsToHtml(students) {
+  document.querySelector(".cards")?.remove();
+
+  const cards = document.createElement("div");
+  cards.classList.add("cards");
+  document.body.append(cards);
+
+  for (const student of students) {
+    cards.append(createCard(student));
+  }
+}
+
+// hente ut studenter
+async function loadCharactersStudents() {
+  const apiUrl = `http://hp-api.herokuapp.com/api/characters/students`;
+  const result = await fetch(apiUrl);
+  const students = await result.json();
+  return students;
+}
+
+// Henter ut 10 random elever med sort og math.random.
+async function onClickStartButton() {
+  const students = await loadCharactersStudents();
+  const sortedStudents = students.sort((student1, student2) => {
+    if (Math.random() > 0.5) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+
+  tenFirstStudents = sortedStudents.slice(0, 10);
+
+  addStudentsToHtml(tenFirstStudents);
+}
+
+//lage knapp for å starte undervisning
+function makeStartClassButton() {
+  const button = document.createElement("button");
+  button.textContent = `Click here to start the class`;
+  document.body.append(button);
+  button.addEventListener(`click`, onClickStartButton);
+}
+
+// loadSeverusSnape().then((snape) => console.log(snape));
+//Professor Snape: Bilde, Navn, Alder, Tryllestav-informasjon. //
 
 async function main() {
   const severusSnape = await loadSeverusSnape();
