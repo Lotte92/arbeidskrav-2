@@ -73,6 +73,8 @@ async function loadCharactersStudents() {
 }
 
 function addStudentsToHtml(students) {
+  document.querySelector(".cards")?.remove();
+
   const cards = document.createElement("div");
   cards.classList.add("cards");
   document.body.append(cards);
@@ -86,6 +88,9 @@ function addStudentsToHtml(students) {
 function createCard(student) {
   const card = document.createElement("div");
   card.classList.add("card");
+  card.style.backgroundColor = `rgb(${Math.floor(Math.random() * 100 + 155)}, ${Math.floor(
+    Math.random() * 100 + 155
+  )}, ${Math.floor(Math.random() * 100 + 155)})`;
 
   const img = document.createElement("img");
   img.src = student.image;
@@ -105,6 +110,7 @@ function createCard(student) {
   const studentHouse = document.createElement("p");
   studentHouse.textContent = student.house;
   cardContent.append(studentHouse);
+
   return card;
 }
 
