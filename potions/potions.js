@@ -1,3 +1,5 @@
+let tenFirstStudents = [];
+
 async function loadCharactersStaff() {
   const apiUrl = `http://hp-api.herokuapp.com/api/characters/staff`;
   const result = await fetch(apiUrl);
@@ -48,7 +50,7 @@ async function onClickStartButton() {
     }
   });
 
-  const tenFirstStudents = sortedStudents.slice(0, 10);
+  tenFirstStudents = sortedStudents.slice(0, 10);
 
   addStudentsToHtml(tenFirstStudents);
 }
@@ -79,7 +81,6 @@ function addStudentsToHtml(students) {
   cards.classList.add("cards");
   document.body.append(cards);
 
-  console.log(students);
   for (const student of students) {
     cards.append(createCard(student));
   }
@@ -109,7 +110,25 @@ function createCard(student) {
 
   const studentHouse = document.createElement("p");
   studentHouse.textContent = student.house;
+  if (student.house === "") {
+    studentHouse.textContent = "Unknown";
+  }
   cardContent.append(studentHouse);
+
+  const deleteStudent = document.createElement("button");
+  deleteStudent.textContent = "Delete student";
+  cardContent.append(deleteStudent);
+  deleteStudent.addEventListener(`click`, async () => {
+    const answer = prompt("Do you want to delete this student?");
+    if (answer.toLowerCase() === "yes") {
+      const index = tenFirstStudents.findIndex((stud) => stud.name === student.name);
+      const students = await loadCharactersStudents();
+      const existingStudentNames = tenFirstStudents.map((stud) => stud.name);
+      const unusedStudents = students.filter((stud) => existingStudentNames.includes(stud.name) === false);
+      tenFirstStudents.splice(index, 1, unusedStudents[Math.floor(Math.random() * unusedStudents.length)]);
+      addStudentsToHtml(tenFirstStudents);
+    }
+  });
 
   return card;
 }
