@@ -74,7 +74,6 @@ li {
   display: inline-block;
   padding: 1em;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .button-container {
@@ -106,6 +105,13 @@ li {
   text-align: center;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+.input-container {
+  display: none;
+}
+.input-container.show {
+  display: block;
 }
 
 .create-name,

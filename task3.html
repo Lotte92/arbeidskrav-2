@@ -20,12 +20,27 @@
     <main>
       <div class="container">
         <h1>Our Teachers</h1>
+        <button onclick="showAddStaff()">Create new staff</button>
         <div class="input-container">
-          <input type="text" placeholder="Name:" class="create-name" />
-          <input type="text" placeholder="House:" class="create-house" />
-          <input type="text" placeholder="Patronus:" class="create-patronus" />
+          <input type="text" placeholder="Name:" class="create-name" required />
+
+          <select name="create-house" class="create-house">
+            <option value="Gryffindor">Gryffindor</option>
+            <option value="Slytherin">Slytherin</option>
+            <option value="Hufflepuff">Hufflepuff</option>
+            <option value="Ravenclaw">Ravenclaw</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <input
+            type="text"
+            placeholder="Patronus:"
+            class="create-patronus"
+            required
+          />
+          <button onclick="saveStaff()" class="save-staff">Save</button>
+          <button class="cancel-staff" onclick="cancelStaff()">Cancel</button>
         </div>
-        <button class="add-new-btn">Add new staff</button>
       </div>
 
       <ul class="staff-list"></ul>
