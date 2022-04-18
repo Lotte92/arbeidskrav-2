@@ -22,6 +22,30 @@ p {
 main {
   max-width: 960px;
   margin: 0 auto;
+  position: relative;
+}
+
+header {
+  max-width: 960px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 5px;
+}
+
+nav > ul > li > a {
+  margin-left: 10px;
+  color: #452821;
+}
+
+nav > ul > li > a:hover {
+  margin-left: 10px;
+  color: #aa9270;
 }
 
 button {
@@ -43,4 +67,10 @@ button:hover {
 
 button:active {
   transform: translateY(1px);
+}
+
+.cover-img {
+  margin-top: 25px;
+  width: 100%;
+  height: auto;
 }
