@@ -7,38 +7,39 @@
 //if no picture = default picture
 //if dead = age not show up
 //if age unknown = "uvisst"
-getCaracters("http://hp-api.herokuapp.com/api/characters").then(() => {
-  console.log(caracterArray);
+
+getCharacters("http://hp-api.herokuapp.com/api/characters").then(() => {
+  console.log(characterArray);
 });
 
-let caracterArray = [];
+let characterArray = [];
 
-async function getCaracters(url) {
-  const caracters = await fetch(url);
-  const jsonData = await caracters.json();
-  jsonData.forEach((caracter) => {
-    if (caracter.image === "") {
-      caracter.image = `https://cdn.pixabay.com/photo/2017/08/19/08/52/albus-dumbledore-2657724_1280.png`;
+async function getCharacters(url) {
+  const characters = await fetch(url);
+  const jsonData = await characters.json();
+  jsonData.forEach((character) => {
+    if (character.image === "") {
+      character.image = `https://cdn.pixabay.com/photo/2017/08/19/08/52/albus-dumbledore-2657724_1280.png`;
     }
 
-    caractersClass = new Caracters(
-      caracter.image,
-      caracter.name,
-      caracter.house,
-      caracter.dateOfBirth,
-      caracter.alive
+    charactersClass = new Characters(
+      character.image,
+      character.name,
+      character.house,
+      character.yearOfBirth,
+      character.alive
     );
 
-    caracterArray.push(caractersClass);
+    characterArray.push(charactersClass);
   });
 }
 
-class Caracters {
-  constructor(image, name, house, dateOfBirth, alive) {
+class Characters {
+  constructor(image, name, house, age, alive) {
     this.image = image;
     this.name = name;
     this.house = house;
-    this.dateOfBirth = dateOfBirth;
+    this.yearOfBirth = age;
     this.alive = alive;
   }
 }
@@ -49,31 +50,35 @@ createStudentBtn.innerText = "Create your own student";
 inputContainer.append(createStudentBtn);
 
 let gryffindorContainer = document.getElementById("Gryffinfor-house");
+let gryffindorCard = document.createElement("div");
 let gryffindorBtn = document.createElement("button");
 gryffindorBtn.innerText = "Show students of Gryffindor";
 gryffindorBtn.addEventListener("click", () => {
-  listStudents("Gryffindor", gryffindorContainer);
+  listStudents("Gryffindor", gryffindorCard);
 });
 
 let slytherinContainer = document.getElementById("Slytherin-house");
+let slytherinCard = document.createElement("div");
 let slytherinBtn = document.createElement("button");
-slytherinBtn.innerText = "Show students of Slyterin";
+slytherinBtn.innerText = "Show students of Slytherin";
 slytherinBtn.addEventListener("click", () => {
-  listStudents("Slytherin", slytherinContainer);
+  listStudents("Slytherin", slytherinCard);
 });
 
 let ravenclawContainer = document.getElementById("Ravenclaw-house");
+let ravenclawCard = document.createElement("div");
 let ravenclawBtn = document.createElement("button");
 ravenclawBtn.innerText = "Show students of Ravenclaw";
 ravenclawBtn.addEventListener("click", () => {
-  listStudents("Ravenclaw", ravenclawContainer);
+  listStudents("Ravenclaw", ravenclawCard);
 });
 
 let hufflepuffContainer = document.getElementById("Hufflepuff-house");
+let hufflepuffCard = document.createElement("div");
 let hufflepuffBtn = document.createElement("button");
 hufflepuffBtn.innerText = "Show students of Hufflepuff";
 hufflepuffBtn.addEventListener("click", () => {
-  listStudents("Hufflepuff", hufflepuffContainer);
+  listStudents("Hufflepuff", hufflepuffCard);
 });
 
 let houseContainer = document.getElementById("house-container");
@@ -83,60 +88,81 @@ houseContainer.append(
   ravenclawContainer,
   hufflepuffContainer
 );
-gryffindorContainer.append(gryffindorBtn);
-slytherinContainer.append(slytherinBtn);
-ravenclawContainer.append(ravenclawBtn);
-hufflepuffContainer.append(hufflepuffBtn);
+gryffindorContainer.append(gryffindorBtn, gryffindorCard);
+slytherinContainer.append(slytherinBtn, slytherinCard);
+ravenclawContainer.append(ravenclawBtn, ravenclawCard);
+hufflepuffContainer.append(hufflepuffBtn, hufflepuffCard);
 
-function listStudents(students, container) {
-  for (let i = 0; i < caracterArray.length; i++) {
+function listStudents(students, card) {
+  card.innerHTML = "";
+  for (let i = 0; i < characterArray.length; i++) {
     let aliveTag = "";
-    if (caracterArray[i].alive) {
-      aliveTag = `<li> Alive: ${caracterArray[i].alive}</li>`;
+    let ageTag = new Date().getFullYear() - characterArray[i].yearOfBirth;
+
+    if (characterArray[i].alive) {
+      aliveTag = `<li> Alive: ${characterArray[i].alive}</li>`;
+      ageTag = ` <li> Age: ${ageTag}  </li>`;
     } else {
-      aliveTag = `<li class="dead"> Alive: ${caracterArray[i].alive}</li>`;
+      aliveTag = `<li class="dead"> Alive: ${characterArray[i].alive}</li>`;
+      ageTag = "";
+    }
+    if (characterArray[i].yearOfBirth === "") {
+      ageTag = `Age: unknown`;
     }
 
-    if (caracterArray[i].house === `${students}`) {
-      container.innerHTML += `<div id="${i}" class="student-card"> 
-          <img src="${caracterArray[i].image}" alt="caracter-images"/>  
+    if (characterArray[i].house === `${students}`) {
+      card.innerHTML += `<div id="${i}" class="student-card"> 
+          <img src="${characterArray[i].image}" alt="caracter-images"/>  
           <ul>
-            <li> Name: ${caracterArray[i].name} </li>
-            <li> House: ${caracterArray[i].house}</li>
-            <li> Day Of Birth: ${caracterArray[i].dateOfBirth} </li>
+            <li> Name: ${characterArray[i].name} </li>
+            <li> House:  ${characterArray[i].house}</li>
+            ${ageTag}
             ${aliveTag}
           </ul>
         </div> `;
     }
   }
-  addStudent(students);
 }
 
 createStudentBtn.addEventListener("click", () => {
   addStudent();
 });
 
-function addStudent(students) {
-  `${students}-house`.innerHTML = "";
+function addStudent() {
   let inputImg = document.getElementById(`img-input`).value;
   let inputName = document.getElementById(`name-input`).value;
   let inputHouse = document.getElementById(`house-input`).value;
-  let inputBirthday = document.getElementById(`dateOfBirth-input`).value;
+  let inputAge = document.getElementById(`yearOfBirth-input`).value;
 
   const newStudent = {
     image: inputImg,
     name: inputName,
     house: inputHouse,
-    dateOfBirth: inputBirthday,
-    alive: "",
+    yearOfBirth: inputAge,
+    alive: "true",
   };
 
-  caracterArray.unshift(newStudent);
+  var houses = ["Gryffindor", "Slytherin", "Ravenclaw", "Huffelpuff"];
 
-  localStorage.setItem(`session`, JSON.stringify(caracterArray));
-
-  console.log(newStudent);
   if (newStudent.image === "") {
     newStudent.image = `https://cdn.pixabay.com/photo/2017/08/19/08/52/albus-dumbledore-2657724_1280.png`;
+  }
+  if (
+    newStudent.name === "" ||
+    newStudent.house === "" ||
+    newStudent.yearOfBirth === ""
+  ) {
+    alert("Name, house and year of birth must be filled in");
+  } else if (
+    newStudent.house === `Gryffindor` ||
+    newStudent.house === `Slytherin` ||
+    newStudent.house === `Ravenclaw` ||
+    newStudent.house === `Hufflepuff`
+  ) {
+    characterArray.unshift(newStudent);
+    console.log(newStudent);
+    alert("Repress the house of your choice, to see your new card.");
+  } else {
+    alert("This house does not excist. Did you wrote it right?");
   }
 }
