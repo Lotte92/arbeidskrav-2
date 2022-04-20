@@ -20,7 +20,9 @@
     <main>
       <div class="container">
         <h1>Our Teachers</h1>
-        <button onclick="showAddStaff()">Create new staff</button>
+        <button onclick="showAddStaff()" class="create-staff-btn">
+          Create new staff
+        </button>
         <div class="input-container">
           <input type="text" placeholder="Name:" class="create-name" required />
 
@@ -39,7 +41,7 @@
             required
           />
           <button onclick="saveStaff()" class="save-staff">Save</button>
-          <button class="cancel-staff" onclick="cancelStaff()">Cancel</button>
+          <button onclick="cancelStaff()" class="cancel-staff">Cancel</button>
         </div>
       </div>
 

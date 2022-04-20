@@ -202,6 +202,20 @@ No house = Brown */
   overflow: hidden;
 }
 
-.add-new-btn {
-  align-content: flex-end;
+.delete-btn,
+.edit-btn {
+  padding: 5px;
+  color: white;
+  background-color: #265c5c;
+  width: 150px;
+  border: 0 none;
+  border-radius: 20px;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+input {
+  color: #265c5c;
 }

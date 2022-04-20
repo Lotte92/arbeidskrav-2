@@ -192,7 +192,7 @@ function showStaff(staff) {
   }
 }
 
-//S
+//Create staff
 
 function showAddStaff() {
   let inputContainer = document.querySelector(".input-container");
