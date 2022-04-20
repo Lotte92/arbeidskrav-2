@@ -50,6 +50,7 @@ function showStaff(staff) {
       }
     });
 
+    //EDIT part
     let editBtn = document.createElement("button");
     editBtn.innerText = "Edit";
     editBtn.classList.add("edit-btn");

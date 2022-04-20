@@ -80,7 +80,7 @@ li {
   text-align: center;
 }
 
-.create-staff-button {
+.create-staff-btn {
   padding: 10px;
   color: white;
   background-color: #265c5c;
@@ -93,8 +93,8 @@ li {
   text-transform: uppercase;
 }
 
-.clear-button,
-.save-button {
+.save-staff,
+.cancel-staff {
   color: white;
   border: 0 none;
   border-radius: 20px;
