@@ -64,7 +64,7 @@ function createCard(student) {
   const studentHouse = document.createElement("p");
   studentHouse.textContent = student.house;
   if (student.house === "") {
-    studentHouse.textContent = "Unknown";
+    studentHouse.textContent = "Unknown house";
   }
   cardContent.append(studentHouse);
 
@@ -133,7 +133,6 @@ function makeStartClassButton() {
   button.addEventListener(`click`, onClickStartButton);
 }
 
-// loadSeverusSnape().then((snape) => console.log(snape));
 //Professor Snape: Bilde, Navn, Alder, Tryllestav-informasjon. //
 
 async function main() {
