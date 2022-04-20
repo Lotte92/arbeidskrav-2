@@ -10,10 +10,10 @@ html {
   display: grid;
   height: 100%;
   width: 100%;
-  grid-template-columns: 2fr 2fr 1fr;
-  grid-template-rows: 10% 10%;
+  grid-template-columns: 3fr 3fr 1fr;
+  grid-template-rows: 40% 60%;
   grid-template-areas:
-    " inputContainer  inputContainer searchContainer"
+    "houseContainer houseContainer inputContainer"
     "houseContainer houseContainer searchContainer";
 }
 
@@ -21,6 +21,7 @@ html {
   position: relative;
   width: 100%;
   height: 100%;
+  margin-top: 50px;
   display: grid;
   grid-area: houseContainer;
   grid-template-columns: 2fr 2fr 2fr 2fr;
@@ -29,7 +30,7 @@ html {
   justify-content: center;
 }
 
-.Gryffinfor-house {
+.Gryffinfor-house > {
   grid-area: gryffindorContainer;
 }
 
@@ -48,64 +49,260 @@ html {
 #input-container {
   position: relative;
   grid-area: inputContainer;
-  height: 100%;
-  width: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 400px;
+  border: rgb(231, 228, 228) solid;
+  opacity: 80%;
+  font-size: 21px;
+  letter-spacing: 0px;
+  line-height: 35px;
+}
+
+#input-container > button {
+}
+#input-container > h1 {
+  font-size: 30px;
+  text-align: center;
 }
 
 input {
+  width: 90%;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.Slytherin-btn {
+  background-image: linear-gradient(
+    to bottom,
+    #152222,
+    #265c5c,
+    #265c5c,
+    #193535
+  );
+  height: 270px;
   width: 100%;
+  border-radius: 250px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+  font-size: 30px;
 }
 
-.student-card {
-  background-color: rgba(198, 221, 217, 0.849);
-  border: rgb(0, 0, 0) solid;
-  border-width: 1px;
-  border-radius: 3px;
-  height: 100px;
-  width: 250px;
+.Slytherin-card {
+  background-image: linear-gradient(
+    to right,
+    #152222,
+    #265c5c,
+    #265c5c,
+    #193535
+  );
+  margin: 10px 5px 10px 5px;
+  text-align: center;
   display: flex;
-  align-items: center;
-  padding: 10px;
-  margin: 10px;
+  flex-direction: column;
+  overflow: hidden;
+  height: 470px;
+  width: 95%;
+  border: 2px solid #452821;
+  border-radius: 10px;
+  position: relative;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
-img {
-  height: 100px;
-  width: 100px;
+.Slytherin-card:hover {
+  opacity: 80%;
 }
 
-li {
+.Slytherin-card > img {
+  width: 100%;
+  height: 300px;
+}
+
+.Gryffindor-btn {
+  background-image: linear-gradient(
+    to bottom,
+    #7c4a07,
+    #380e03,
+    #380e03,
+    #7c4a07
+  );
+  height: 270px;
+  width: 100%;
+  border-radius: 250px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+  font-size: 30px;
+}
+
+.Gryffindor-card {
+  color: #ffffff;
+  background-image: linear-gradient(
+    to right,
+    #7c4a07,
+    #380e03,
+    #380e03,
+    #7c4a07
+  );
+  margin: 10px 5px 10px 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 470px;
+  width: 95%;
+  border: 2px solid #452821;
+  border-radius: 10px;
+  position: relative;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.Gryffindor-card:hover {
+  opacity: 80%;
+}
+
+.Gryffindor-card > img {
+  width: 100%;
+  height: 300px;
+}
+
+.Ravenclaw-btn {
+  background-image: linear-gradient(
+    to bottom,
+    #11126b,
+    #1e3a64bb,
+    #274470bb,
+    #11126b
+  );
+  height: 270px;
+  width: 100%;
+  border-radius: 250px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+  font-size: 30px;
+}
+
+.Ravenclaw-card {
+  color: #ffffff;
+  background-image: linear-gradient(
+    to right,
+    #11126b,
+    #1e3a64bb,
+    #274470bb,
+    #11126b
+  );
+  margin: 10px 5px 10px 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 470px;
+  width: 95%;
+  border: 2px solid #452821;
+  border-radius: 10px;
+  position: relative;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.Ravenclaw-card:hover {
+  opacity: 80%;
+}
+
+.Ravenclaw-card > img {
+  width: 100%;
+  height: 300px;
+}
+
+.Hufflepuff-btn {
+  background-image: linear-gradient(
+    to bottom,
+    #865d03,
+    #f0d019bb,
+    #ccb013bb,
+    #865d03
+  );
+  height: 270px;
+  width: 100%;
+  border-radius: 250px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+  font-size: 30px;
+}
+.Hufflepuff-card {
+  background-image: linear-gradient(
+    to right,
+    #865d03,
+    #f0d019bb,
+    #ccb013bb,
+    #865d03
+  );
+  margin: 10px 5px 10px 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 470px;
+  width: 95%;
+  border: 2px solid #452821;
+  border-radius: 10px;
+  position: relative;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.Hufflepuff-card:hover {
+  opacity: 80%;
+}
+
+.Hufflepuff-card > img {
+  width: 100%;
+  height: 300px;
+}
+
+h3 {
+  font-size: 28px;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+ul {
   list-style: none;
+  align-items: center;
+  font-size: 18px;
+  margin-right: 30px;
 }
 
 .dead {
   color: red;
 }
 
-h1 {
-  color: #eee;
-  margin-bottom: 30px;
-}
 .container {
-  padding: 0px;
-  margin: 0px;
-  max-width: 1000px;
   text-align: center;
+  justify-content: flex;
   grid-area: searchContainer;
-}
-
-#charactersList {
-  padding-inline-start: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 20px;
+  border: rgb(231, 228, 228) solid;
+  height: 2000vh;
+  width: 400px;
 }
 
 .character {
   list-style-type: none;
-  background-color: #ffffff;
+  width: 90%;
   border-radius: 3px;
-  padding: 10px 20px;
+  padding: 10px;
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-areas:
@@ -119,26 +316,16 @@ h1 {
 
 .character > h2 {
   grid-area: name;
-  margin-bottom: 0px;
 }
 
 .character > .house {
   grid-area: house;
-  margin: 0;
 }
 .character > .age {
   grid-area: age;
-  margin: 0px;
 }
 .character > .alive {
   grid-area: alive;
-  margin: 0;
-}
-.character > .dead {
-  grid-area: alive;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: red;
 }
 
 .character > img {
@@ -148,7 +335,8 @@ h1 {
 }
 
 #searchBar {
-  width: 100%;
+  margin-top: 30px;
+  width: 90%;
   height: 32px;
   border-radius: 3px;
   border: 1px solid #eaeaea;
@@ -164,6 +352,6 @@ h1 {
 #searchWrapper::after {
   content: "🔍";
   position: absolute;
-  top: 7px;
+  top: 40px;
   right: 15px;
 }

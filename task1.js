@@ -46,13 +46,14 @@ class Characters {
 
 let inputContainer = document.getElementById("input-container");
 let createStudentBtn = document.createElement("button");
-createStudentBtn.innerText = "Create your own student";
+createStudentBtn.innerText = "Add student";
 inputContainer.append(createStudentBtn);
 
 let gryffindorContainer = document.getElementById("Gryffinfor-house");
 let gryffindorCard = document.createElement("div");
 let gryffindorBtn = document.createElement("button");
-gryffindorBtn.innerText = "Show students of Gryffindor";
+gryffindorBtn.classList.add("Gryffindor-btn");
+gryffindorBtn.innerText = "SHOW STUDENTS OF GRYFFINDOR";
 gryffindorBtn.addEventListener("click", () => {
   listStudents("Gryffindor", gryffindorCard);
 });
@@ -60,7 +61,8 @@ gryffindorBtn.addEventListener("click", () => {
 let slytherinContainer = document.getElementById("Slytherin-house");
 let slytherinCard = document.createElement("div");
 let slytherinBtn = document.createElement("button");
-slytherinBtn.innerText = "Show students of Slytherin";
+slytherinBtn.classList.add("Slytherin-btn");
+slytherinBtn.innerText = "SHOW STUDENTS OF SLYTHERIN";
 slytherinBtn.addEventListener("click", () => {
   listStudents("Slytherin", slytherinCard);
 });
@@ -68,7 +70,8 @@ slytherinBtn.addEventListener("click", () => {
 let ravenclawContainer = document.getElementById("Ravenclaw-house");
 let ravenclawCard = document.createElement("div");
 let ravenclawBtn = document.createElement("button");
-ravenclawBtn.innerText = "Show students of Ravenclaw";
+ravenclawBtn.classList.add("Ravenclaw-btn");
+ravenclawBtn.innerText = "SHOW STUDENTS OF RAVENCLAW";
 ravenclawBtn.addEventListener("click", () => {
   listStudents("Ravenclaw", ravenclawCard);
 });
@@ -76,7 +79,8 @@ ravenclawBtn.addEventListener("click", () => {
 let hufflepuffContainer = document.getElementById("Hufflepuff-house");
 let hufflepuffCard = document.createElement("div");
 let hufflepuffBtn = document.createElement("button");
-hufflepuffBtn.innerText = "Show students of Hufflepuff";
+hufflepuffBtn.classList.add("Hufflepuff-btn");
+hufflepuffBtn.innerText = "SHOW STUDENTS OF HUFFLEPUFF";
 hufflepuffBtn.addEventListener("click", () => {
   listStudents("Hufflepuff", hufflepuffCard);
 });
@@ -100,10 +104,10 @@ function listStudents(students, card) {
     let ageTag = new Date().getFullYear() - characterArray[i].yearOfBirth;
 
     if (characterArray[i].alive) {
-      aliveTag = `<li> Alive: ${characterArray[i].alive}</li>`;
-      ageTag = ` <li> Age: ${ageTag}  </li>`;
+      aliveTag = `<li>Alive:${characterArray[i].alive}</li>`;
+      ageTag = ` <li>Age:${ageTag}</li>`;
     } else {
-      aliveTag = `<li class="dead"> Alive: ${characterArray[i].alive}</li>`;
+      aliveTag = `<li class="dead">Alive:${characterArray[i].alive}</li>`;
       ageTag = "";
     }
     if (characterArray[i].yearOfBirth === "") {
@@ -111,11 +115,11 @@ function listStudents(students, card) {
     }
 
     if (characterArray[i].house === `${students}`) {
-      card.innerHTML += `<div id="${i}" class="student-card"> 
+      card.innerHTML += `<div id="${i}" class="${students}-card"> 
           <img src="${characterArray[i].image}" alt="caracter-images"/>  
           <ul>
-            <li> Name: ${characterArray[i].name} </li>
-            <li> House:  ${characterArray[i].house}</li>
+            <li><h3>${characterArray[i].name}</h3></li>
+            <li>House:${characterArray[i].house}</li>
             ${ageTag}
             ${aliveTag}
           </ul>
