@@ -46,6 +46,7 @@ class Characters {
 
 let inputContainer = document.getElementById("input-container");
 let createStudentBtn = document.createElement("button");
+createStudentBtn.classList.add("btn");
 createStudentBtn.innerText = "Add student";
 inputContainer.append(createStudentBtn);
 
@@ -86,12 +87,7 @@ hufflepuffBtn.addEventListener("click", () => {
 });
 
 let houseContainer = document.getElementById("house-container");
-houseContainer.append(
-  gryffindorContainer,
-  slytherinContainer,
-  ravenclawContainer,
-  hufflepuffContainer
-);
+houseContainer.append(gryffindorContainer, slytherinContainer, ravenclawContainer, hufflepuffContainer);
 gryffindorContainer.append(gryffindorBtn, gryffindorCard);
 slytherinContainer.append(slytherinBtn, slytherinCard);
 ravenclawContainer.append(ravenclawBtn, ravenclawCard);
@@ -151,11 +147,7 @@ function addStudent() {
   if (newStudent.image === "") {
     newStudent.image = `https://cdn.pixabay.com/photo/2017/08/19/08/52/albus-dumbledore-2657724_1280.png`;
   }
-  if (
-    newStudent.name === "" ||
-    newStudent.house === "" ||
-    newStudent.yearOfBirth === ""
-  ) {
+  if (newStudent.name === "" || newStudent.house === "" || newStudent.yearOfBirth === "") {
     alert("Name, house and year of birth must be filled in");
   } else if (
     newStudent.house === `Gryffindor` ||

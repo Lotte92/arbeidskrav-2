@@ -80,6 +80,7 @@ function createCard(student) {
   cardContent.append(studentHouse);
 
   const deleteStudent = document.createElement("button");
+  deleteStudent.classList.add("btn");
   deleteStudent.textContent = "Delete student";
   cardContent.append(deleteStudent);
   deleteStudent.addEventListener(`click`, async () => {
@@ -139,6 +140,7 @@ async function onClickStartButton() {
 //lage knapp for å starte undervisning
 function makeStartClassButton() {
   const button = document.createElement("button");
+  button.classList.add("btn");
   button.textContent = `Click here to start the class`;
   document.body.append(button);
   button.addEventListener(`click`, onClickStartButton);

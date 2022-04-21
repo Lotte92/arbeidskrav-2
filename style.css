@@ -5,10 +5,6 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
-body {
-  padding: 10px;
-}
-
 h1,
 h2,
 h3,
@@ -22,20 +18,33 @@ p {
 main {
   max-width: 960px;
   margin: 0 auto;
+  padding: 10px;
   position: relative;
 }
 
 header {
-  max-width: 960px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 25px;
+  background-color: white;
+}
+
+nav {
+  max-width: 960px;
 }
 
 nav > ul {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   list-style: none;
   margin: 5px;
+  min-height: 50px;
+  height: 100%;
+  padding: 0px 10px;
+  font-size: 1rem;
 }
 
 nav > ul > li > a {
@@ -43,12 +52,23 @@ nav > ul > li > a {
   color: #452821;
 }
 
+nav > ul > li > a.active {
+  margin-left: 10px;
+  color: #265c5c;
+}
+
 nav > ul > li > a:hover {
   margin-left: 10px;
   color: #aa9270;
 }
 
-button {
+nav > ul > li {
+  display: inline-block;
+  padding: 1em;
+  text-align: center;
+}
+
+.btn {
   border: 2px solid #452821;
   background-color: #aa9270;
   color: #452821;
@@ -60,12 +80,12 @@ button {
   transition: all 0.5s ease-in-out;
 }
 
-button:hover {
+.btn:hover {
   opacity: 0.7;
   transform: scale(1.2);
 }
 
-button:active {
+.btn:active {
   transform: translateY(1px);
 }
 
