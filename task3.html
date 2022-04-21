@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="task3.css" />
+    <title>Teacher Creator</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Yearbook</a></li>
+          <li><a href="index.html">Potions Class</a></li>
+          <li><a href="index.html">Teacher Creator</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <h1>Our Teachers</h1>
+        <button onclick="showAddStaff()" class="create-staff-btn">
+          Create new staff
+        </button>
+        <div class="input-container">
+          <input type="text" placeholder="Name:" class="create-name" required />
+
+          <select name="create-house" class="create-house">
+            <option value="Gryffindor">Gryffindor</option>
+            <option value="Slytherin">Slytherin</option>
+            <option value="Hufflepuff">Hufflepuff</option>
+            <option value="Ravenclaw">Ravenclaw</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <input
+            type="text"
+            placeholder="Patronus:"
+            class="create-patronus"
+            required
+          />
+          <button onclick="saveStaff()" class="save-staff">Save</button>
+          <button onclick="cancelStaff()" class="cancel-staff">Cancel</button>
+        </div>
+      </div>
+
+      <ul class="staff-list"></ul>
+      <script src="task3.js"></script>
+    </main>
+  </body>
+</html>
