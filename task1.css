@@ -76,30 +76,18 @@ input {
 }
 
 .Slytherin-btn {
-  background-image: linear-gradient(
-    to bottom,
-    #152222,
-    #265c5c,
-    #265c5c,
-    #193535
-  );
+  background-image: linear-gradient(to bottom, #152222, #265c5c, #265c5c, #193535);
   height: 270px;
   width: 100%;
   border-radius: 250px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   color: white;
   font-size: 30px;
 }
 
 .Slytherin-card {
-  background-image: linear-gradient(
-    to right,
-    #152222,
-    #265c5c,
-    #265c5c,
-    #193535
-  );
+  color: #ffffff;
+  background-image: linear-gradient(to right, #152222, #265c5c, #265c5c, #193535);
   margin: 10px 5px 10px 5px;
   text-align: center;
   display: flex;
@@ -110,9 +98,12 @@ input {
   border: 2px solid #452821;
   border-radius: 10px;
   position: relative;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.Slytherin-card > ul > li > h3 {
+  color: #ffffff;
 }
 
 .Slytherin-card:hover {
@@ -125,31 +116,18 @@ input {
 }
 
 .Gryffindor-btn {
-  background-image: linear-gradient(
-    to bottom,
-    #7c4a07,
-    #380e03,
-    #380e03,
-    #7c4a07
-  );
+  background-image: linear-gradient(to bottom, #7c4a07, #380e03, #380e03, #7c4a07);
   height: 270px;
   width: 100%;
   border-radius: 250px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   color: white;
   font-size: 30px;
 }
 
 .Gryffindor-card {
   color: #ffffff;
-  background-image: linear-gradient(
-    to right,
-    #7c4a07,
-    #380e03,
-    #380e03,
-    #7c4a07
-  );
+  background-image: linear-gradient(to right, #7c4a07, #380e03, #380e03, #7c4a07);
   margin: 10px 5px 10px 5px;
   text-align: center;
   display: flex;
@@ -160,9 +138,12 @@ input {
   border: 2px solid #452821;
   border-radius: 10px;
   position: relative;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.Gryffindor-card > ul > li > h3 {
+  color: #ffffff;
 }
 
 .Gryffindor-card:hover {
@@ -175,31 +156,18 @@ input {
 }
 
 .Ravenclaw-btn {
-  background-image: linear-gradient(
-    to bottom,
-    #11126b,
-    #1e3a64bb,
-    #274470bb,
-    #11126b
-  );
+  background-image: linear-gradient(to bottom, #11126b, #1e3a64bb, #274470bb, #11126b);
   height: 270px;
   width: 100%;
   border-radius: 250px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   color: white;
   font-size: 30px;
 }
 
 .Ravenclaw-card {
   color: #ffffff;
-  background-image: linear-gradient(
-    to right,
-    #11126b,
-    #1e3a64bb,
-    #274470bb,
-    #11126b
-  );
+  background-image: linear-gradient(to right, #11126b, #1e3a64bb, #274470bb, #11126b);
   margin: 10px 5px 10px 5px;
   text-align: center;
   display: flex;
@@ -210,9 +178,11 @@ input {
   border: 2px solid #452821;
   border-radius: 10px;
   position: relative;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+.Ravenclaw-card > ul > li > h3 {
+  color: #ffffff;
 }
 
 .Ravenclaw-card:hover {
@@ -225,29 +195,16 @@ input {
 }
 
 .Hufflepuff-btn {
-  background-image: linear-gradient(
-    to bottom,
-    #865d03,
-    #f0d019bb,
-    #ccb013bb,
-    #865d03
-  );
+  background-image: linear-gradient(to bottom, #865d03, #f0d019bb, #ccb013bb, #865d03);
   height: 270px;
   width: 100%;
   border-radius: 250px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   color: white;
   font-size: 30px;
 }
 .Hufflepuff-card {
-  background-image: linear-gradient(
-    to right,
-    #865d03,
-    #f0d019bb,
-    #ccb013bb,
-    #865d03
-  );
+  background-image: linear-gradient(to right, #865d03, #f0d019bb, #ccb013bb, #865d03);
   margin: 10px 5px 10px 5px;
   text-align: center;
   display: flex;
@@ -258,9 +215,12 @@ input {
   border: 2px solid #452821;
   border-radius: 10px;
   position: relative;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.Hufflepuff-card > ul > li > h3 {
+  color: #000000;
 }
 
 .Hufflepuff-card:hover {
