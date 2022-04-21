@@ -26,6 +26,17 @@ function createHtmlInfoSeverusSnape(severusSnape) {
   name.textContent = severusSnape.name;
   infoDiv.append(name);
 
+  const wand = document.createElement("p");
+  wand.textContent = "Wand: ";
+  infoDiv.append(wand);
+  if (severusSnape.wand.core.length > 0 || severusSnape.wand.wood.length > 0 || severusSnape.wand.length.length > 0) {
+    wand.textContent += `wood: ${wand.wood},
+    core: ${wand.core},
+    length: ${wand.length}`;
+  } else {
+    wand.textContent += "uknown";
+  }
+
   //regne ut alder på severus snape
   const age = new Date().getFullYear() - severusSnape.yearOfBirth;
   const ageElement = document.createElement("p");
